@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
  * @author Roberto MuVe
  */
 @Entity
-@Table(name = "ROPA") 
+@Table(name = "ropa") 
 public class Ropa implements Serializable {
 
     private static final long serialVersionUID = 1L;

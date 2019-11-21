@@ -20,27 +20,29 @@ import javax.inject.Inject;
 @Named
 @ViewScoped
 public class CtrlRopaNueva implements Serializable {
-  private static final long serialVersionUID = 1L;
-  @Inject
-  private Mensajes mensajes;
-  @Inject
-  private DaoRopa dao;
-  private Ropa modelo;
-  @PostConstruct
-  void init() {
-    modelo = new Ropa();
-  }
-  public Ropa getModelo() {
-    return modelo;
-  }
-  
-  public String guarda() {
-    try {
-      dao.agrega(modelo);
-      return "index?faces-redirect=true";
-    } catch (Exception ex) {
-      mensajes.procesa(ex);
-      return null;
+    private static final long serialVersionUID = 1L;
+    @Inject
+    private Mensajes mensajes;
+    @Inject
+    private DaoRopa dao;
+    private Ropa modelo;
+
+    @PostConstruct
+    void init() {
+        modelo = new Ropa();
     }
-  }
+
+    public Ropa getModelo() {
+        return modelo;
+    }
+
+    public String guarda() {
+        try {
+            dao.agrega(modelo);
+            return "index?faces-redirect=true";
+        } catch (Exception ex) {
+            mensajes.procesa(ex);
+            return null;
+        }
+    }
 }
